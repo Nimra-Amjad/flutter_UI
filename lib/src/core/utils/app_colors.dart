@@ -14,6 +14,7 @@ class AppColors {
   static const lightgreyColor = Color.fromARGB(255, 229, 229, 229);
   static const lightgreyColor1 = Color.fromRGBO(240, 241, 248, 1);
   static const primaryGreen = Color.fromRGBO(7, 43, 28, 1);
+  static const lightGreen = Color.fromRGBO(53, 215, 147, 1);
 
   static const gradientColor1 = Color.fromRGBO(83, 79, 113, 1);
   static const gradientColor2 = Color.fromRGBO(69, 55, 160, 1);

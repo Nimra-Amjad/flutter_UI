@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tutorscope_mobileapp/src/components/text/simple_text.dart';
-import 'package:tutorscope_mobileapp/src/screens/signup_screen.dart';
+import 'package:tutorscope_mobileapp/src/screens/authScreens/signup_screen.dart';
 
-import '../components/buttons/custom_button.dart';
-import '../components/textfields/custom_textfield.dart';
-import '../core/utils/app_colors.dart';
-import 'landing_screens/home_page.dart';
+import '../../components/buttons/custom_button.dart';
+import '../../components/textfields/custom_textfield.dart';
+import '../../core/utils/app_colors.dart';
+import '../landing_screens/home_page.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               Positioned(
-                top: 250,
+                top: 300,
                 left: 0,
                 right: 0,
                 bottom: 0,
@@ -60,10 +60,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(
-                        right: 20.0, left: 20.0, top: 20.0),
+                        right: 20.0, left: 20.0, top: 40.0),
                     child: SingleChildScrollView(
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CustomText(
                             text: "Log In",
@@ -72,32 +72,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                           const SizedBox(
-                            height: 20,
-                          ),
-                          CustomText(
-                            text: "Email",
-                            fontColor: AppColors.primaryBlack,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          const SizedBox(
-                            height: 10,
+                            height: 70,
                           ),
                           CustomTextFormField(
                             hinttext: "Enter your email",
                             controller: emailController,
                           ),
                           const SizedBox(
-                            height: 20,
-                          ),
-                          CustomText(
-                            text: "Password",
-                            fontColor: AppColors.primaryBlack,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          const SizedBox(
-                            height: 10,
+                            height: 15.0,
                           ),
                           CustomTextFormField(
                             hinttext: "Enter your password",

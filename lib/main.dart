@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tutorscope_mobileapp/src/screens/login_screen.dart';
+import 'package:tutorscope_mobileapp/src/screens/authScreens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());

@@ -3,9 +3,11 @@ import 'package:tutorscope_mobileapp/src/components/text/simple_text.dart';
 import 'package:tutorscope_mobileapp/src/components/textfields/custom_textfield.dart';
 import 'package:tutorscope_mobileapp/src/core/utils/app_assets.dart';
 import 'package:tutorscope_mobileapp/src/core/utils/app_colors.dart';
+import 'package:tutorscope_mobileapp/src/screens/landing_screens/view_all_agencies.dart';
 
-import '../../components/widgets/custom_home_categories.dart';
 import '../../components/widgets/custom_home_courses.dart';
+import '../components/categories_listview.dart';
+import '../profile/profile_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,6 +28,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 12.0),
@@ -35,16 +38,32 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomText(
-                  text: "Hi, Nimra Amjad",
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ProfileScreen()));
+                  },
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: AppColors.primaryWhite,
+                        radius: 22,
+                        backgroundImage: AssetImage(AppAssets.personIcon),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      CustomText(
+                        text: "Hi, Nimra Amjad",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22,
+                      ),
+                    ],
+                  ),
                 ),
-                Container(
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(color: AppColors.primaryBlack)),
-                    child: const Icon(Icons.person))
+                const Icon(Icons.notifications)
               ],
             ),
             const SizedBox(
@@ -119,86 +138,125 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 50,
             ),
-            CustomText(
-              text: "Categories",
-              fontSize: 23,
-              fontWeight: FontWeight.bold,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomText(
+                  text: "Categories",
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ViewAllAgencies()));
+                  },
+                  child: CustomText(
+                    text: "View All",
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    fontColor: AppColors.primaryGrey,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(
               height: 15,
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10.0, horizontal: 3.0),
-                child: Row(
+            const LandingPageListview(),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomText(
+                  text: "Popular Agencies",
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ViewAllAgencies()));
+                  },
+                  child: CustomText(
+                    text: "View All",
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    fontColor: AppColors.primaryGrey,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
                   children: [
-                    CustomCategoriesBox(
-                        image: AppAssets.mathIcon, text: "Math"),
-                    const SizedBox(
-                      width: 15,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomCoursesBox(
+                          text: "Mobile App",
+                          text2: "14 Agencies",
+                          image: AppAssets.image1,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        CustomCoursesBox(
+                          text: "Mobile App",
+                          text2: "14 Agencies",
+                          image: AppAssets.image2,
+                        ),
+                      ],
                     ),
-                    CustomCategoriesBox(image: AppAssets.mathIcon, text: "Art"),
-                    const SizedBox(
-                      width: 15,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomCoursesBox(
+                          text: "Mobile App",
+                          text2: "14 Agencies",
+                          image: AppAssets.image3,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        CustomCoursesBox(
+                          text: "Mobile App",
+                          text2: "14 Agencies",
+                          image: AppAssets.image4,
+                        ),
+                      ],
                     ),
-                    CustomCategoriesBox(
-                        image: AppAssets.mathIcon, text: "Science"),
-                    const SizedBox(
-                      width: 15,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomCoursesBox(
+                          text: "Mobile App",
+                          text2: "14 Agencies",
+                          image: AppAssets.image5,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        CustomCoursesBox(
+                          text: "Mobile App",
+                          text2: "14 Agencies",
+                          image: AppAssets.image6,
+                        ),
+                      ],
                     ),
-                    CustomCategoriesBox(
-                        image: AppAssets.mathIcon, text: "Computer"),
                   ],
                 ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            CustomText(
-              text: "Courses",
-              fontSize: 23,
-              fontWeight: FontWeight.bold,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: const [
-                  CustomCoursesBox(
-                      text1: "Mobile",
-                      text2: "App Development",
-                      boxColor: AppColors.blueColor,
-                      price: '\$ 100'),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  CustomCoursesBox(
-                      text1: "Live",
-                      text2: "Webinar",
-                      boxColor: AppColors.gradientColor1,
-                      price: '\$ 100'),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  CustomCoursesBox(
-                      text1: "Flutter",
-                      text2: "Development",
-                      boxColor: AppColors.primaryGreen,
-                      price: '\$ 100'),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  CustomCoursesBox(
-                      text1: "BlockChain",
-                      text2: "",
-                      boxColor: AppColors.bluelight,
-                      price: '\$ 100')
-                ],
               ),
             )
           ],
